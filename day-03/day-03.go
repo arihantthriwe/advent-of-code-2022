@@ -3,7 +3,6 @@ package main
 import (
 	_ "embed"
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -13,22 +12,22 @@ var input string
 func main() {
 	input = strings.TrimSpace(input)
 
-	firstPart := make(map[string]int)
-
 	var error int
 
 	for _, row := range strings.Split(input, "\n") {
+
+		firstPart := make(map[rune]int)
+
 		for i, line := range row {
-			s := string(line)
-			n, _ := strconv.Atoi(s)
 			if i < len(row)/2 {
-				firstPart[s]++
-			} else if firstPart[s] > 0 {
-				if n >= 97 && n <= 122 {
-					error += n - 97 + 1
+				firstPart[line]++
+			} else if firstPart[line] > 0 {
+				if line >= 'a' && line <= 'z' {
+					error += int(line-'a') + 1
 				} else {
-					error += n - 65 + 27
+					error += int(line-'A') + 27
 				}
+				break
 			}
 		}
 	}
