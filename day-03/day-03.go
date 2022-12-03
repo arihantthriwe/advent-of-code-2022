@@ -32,4 +32,37 @@ func main() {
 		}
 	}
 	fmt.Println(error)
+	fmt.Println("--------------")
+	secondPart()
+}
+
+func secondPart() {
+
+	chars1 := make(map[rune]int)
+	chars2 := make(map[rune]int)
+
+	var sumOfPriorities int
+
+	for i, row := range strings.Split(input, "\n") {
+
+		for _, c := range row {
+			if (i+1)%3 == 0 {
+				if chars1[c] > 0 && chars2[c] > 0 {
+					if c >= 'a' && c <= 'z' {
+						sumOfPriorities += int(c-'a') + 1
+					} else {
+						sumOfPriorities += int(c-'A') + 27
+					}
+					chars1 = make(map[rune]int)
+					chars2 = make(map[rune]int)
+					break
+				}
+			} else if (i+1)%3 == 1 {
+				chars1[c]++
+			} else if (i+1)%3 == 2 {
+				chars2[c]++
+			}
+		}
+	}
+	fmt.Println(sumOfPriorities)
 }
