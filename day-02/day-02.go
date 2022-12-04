@@ -1,4 +1,4 @@
-package main
+package day02
 
 import (
 	_ "embed"
@@ -9,7 +9,7 @@ import (
 //go:embed input.txt
 var input string
 
-func main() {
+func Day02() {
 	input = strings.TrimSpace(input)
 	var score int
 

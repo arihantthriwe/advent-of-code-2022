@@ -1,4 +1,4 @@
-package main
+package day03
 
 import (
 	_ "embed"
@@ -9,7 +9,7 @@ import (
 //go:embed input.txt
 var input string
 
-func main() {
+func Day03() {
 	input = strings.TrimSpace(input)
 
 	var error int
@@ -32,8 +32,6 @@ func main() {
 		}
 	}
 	fmt.Println(error)
-	fmt.Println("--------------")
-	fmt.Println("second part")
 	secondPart()
 }
 

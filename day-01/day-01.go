@@ -1,4 +1,4 @@
-package main
+package day01
 
 import (
 	_ "embed"
@@ -11,11 +11,11 @@ import (
 //go:embed input.txt
 var input string
 
-func main() {
+func Day01() {
 	input = strings.TrimSpace(input)
 
 	var max int
-	var cals []int
+	var calories []int
 
 	for _, elf := range strings.Split(input, "\n\n") {
 		var sum int
@@ -26,10 +26,10 @@ func main() {
 		if sum > max {
 			max = sum
 		}
-		cals = append(cals, sum)
+		calories = append(calories, sum)
 	}
 
 	fmt.Println(max)
-	sort.Sort(sort.Reverse(sort.IntSlice(cals)))
-	fmt.Println(cals[0] + cals[1] + cals[2])
+	sort.Sort(sort.Reverse(sort.IntSlice(calories)))
+	fmt.Println(calories[0] + calories[1] + calories[2])
 }

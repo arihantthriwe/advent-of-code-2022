@@ -1,11 +1,11 @@
-package main
+package day03
 
 import (
 	_ "embed"
 	"testing"
 )
 
-func Test_main(t *testing.T) {
+func Test_day03(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -15,7 +15,7 @@ func Test_main(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			main()
+			Day03()
 		})
 	}
 }
