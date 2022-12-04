@@ -33,6 +33,7 @@ func main() {
 	}
 	fmt.Println(error)
 	fmt.Println("--------------")
+	fmt.Println("second part")
 	secondPart()
 }
 
